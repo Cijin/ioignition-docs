@@ -1,0 +1,50 @@
+---
+sidebar_position: 2
+---
+
+# Adding scripts
+
+If you have access to the `html` for you page. You can copy the script directectly in the head. Ensure 
+you **defer** the script so that it does not hinder performance of your site on first load.
+
+When entering **your-domain**, ensure you add it without `http://`, `https://` or `www.`
+
+Example if you domain is `https://www.your-domain.com`, the `data-domain` field below would be 
+`your-domain.com`
+
+
+## Adding the script directly to the index.html page
+
+```html title="index.html"
+<head>
+    <!-- Analytics -->
+    <script defer data-domain="your-domain.com" src="https://www.ioignition.com/js/script.js" />
+    <!-- Performance Insights -->
+    <script defer data-domain="your-domain.com" src="https://www.ioignition.com/js/performance.js" />
+</head>
+
+```
+
+## Adding the script to a NextJs App
+
+You can specify the `strategy` in the `Script` prop. The default strategy is `afterInteractive`. You can 
+read more about it [here](https://nextjs.org/docs/app/api-reference/components/script#strategy)
+
+```tsx title="app.tsx"
+import type { AppProps } from 'next/app';
+import Script from 'next/script'
+
+function MyApp({ Component, pageProps }: AppProps) {
+  return (
+    <>
+        <!-- Analytics -->
+        <Script data-domain="your-domain.com" src="https://www.ioignition.com/js/script.js" />
+        <!-- Performance Insights -->
+        <Script data-domain="your-domain.com" src="https://www.ioignition.com/js/performance.js" />
+        <Component {...pageProps} />
+    </>
+  );
+}
+
+export default MyApp;
+```

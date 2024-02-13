@@ -59,11 +59,12 @@ const config = {
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
     ({
       // Replace with your project's social card
-      image: 'img/docusaurus-social-card.jpg',
+      image: 'img/ioignition-social-card.jpg',
       navbar: {
-        title: 'ioignition docs',
         logo: {
           alt: 'ioignition logo',
+          href: 'http://ioignition.com/',
+          target: '_self',
           src: 'img/logo.svg',
         },
         items: [
