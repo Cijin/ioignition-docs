@@ -40,13 +40,6 @@ const config = {
           editUrl:
             'https://github.com/Cijin/ioignition-docs',
         },
-        blog: {
-          showReadingTime: true,
-          // Please change this to your repo.
-          // Remove this to remove the "edit this page" links.
-          editUrl:
-            'https://github.com/Cijin/ioignition-docs',
-        },
         theme: {
           customCss: './src/css/custom.css',
         },
@@ -108,10 +101,6 @@ const config = {
           {
             title: 'More',
             items: [
-              {
-                label: 'Blog',
-                to: '/blog',
-              },
               {
                 label: 'GitHub',
                 href: 'https://github.com/Cijin/ioignition-docs',
