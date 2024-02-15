@@ -1,0 +1,42 @@
+---
+sidebar_position: 1
+---
+
+# Tracker
+
+We'll go through all the info that is collected using the tracker. There are no cookies stored from the script.
+There are two things to understand before we dive into the details of what is collected:
+
+1. Uniquely identifying a visit **without compromising user privacy**
+2. What info gets tracked on a visit?
+3. Getting location info
+
+## Part 1: Uniquely identifying a visit
+
+To differentiate two separate visits from a single visitor, we generate a random string called a [UUID](https://en.wikipedia.org/wiki/Universally_unique_identifier), that helps the server know that this visit is unique or not. We use a different `UUID` to ensure accuracy of info collected over a single session. i.e. When a page is refreshed, it does not register as a new visit.
+
+Yes, that's it. A unique random string identifies a visit.
+
+## Part 2: What info gets tracked?
+
+### a. Referrer
+The [referrer](https://developer.mozilla.org/en-US/docs/Web/API/Document/referrer) that led a visitor to your site. Example, if you a visitor found a link to your site on twitter, the referrer would be `twitter.com`.
+
+### b. Page
+The current [page](https://developer.mozilla.org/en-US/docs/Web/API/Location/href) the visitor has landed on or has navigated to.
+
+### c. Device
+This is approximated using the [width](https://developer.mozilla.org/en-US/docs/Web/API/Window/innerWidth) of the screen the user is viewing your site from.
+
+### d. Browser & Platform
+The browser and platform info is retrieved from the browsers `navigator` [API](https://developer.mozilla.org/en-US/docs/Web/API/Navigator).
+
+## Part 3: Getting location info
+
+To get the location info, IP from which the request was received is used to the country info only. This is will soon be changed to "guess" country from timezone info instead. Which is a much better way of getting country info.
+You can track the progress of this update [here](https://ioignition.featurebase.app/p/use-timezone-to-infer-country-information).
+
+
+## Is that it?
+It might not seem like a lot, but it is enough information to get an understanding of your site traffic. This helps the keep the tracking script small, which in turn reduces the load on your sites.
+Contrary to huge data collected via google analytics, simplicity and efficency of data collected is the goal at Ioignition.
